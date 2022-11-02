@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 7037583244100712092}
   - component: {fileID: 8255743174257595447}
   m_Layer: 5
-  m_Name: yellow_area
+  m_Name: user_area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

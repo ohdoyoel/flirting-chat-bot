@@ -4,9 +4,9 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class ChatManager : MonoBehaviour
+public class VisualChatManager : MonoBehaviour
 {
-    public GameObject YellowArea, WhiteArea, DateArea;
+    public GameObject UserArea, BotArea, DateArea;
     public RectTransform ContentRect;
     public Scrollbar scrollBar;
     SetArea LastArea;
@@ -19,7 +19,7 @@ public class ChatManager : MonoBehaviour
         // print(text);
 
         // 1. make chat area and put text
-        SetArea Area = Instantiate(isSend ? YellowArea : WhiteArea).GetComponent<SetArea>();
+        SetArea Area = Instantiate(isSend ? UserArea : BotArea).GetComponent<SetArea>();
         Area.transform.SetParent(ContentRect.transform, false);
         Area.BoxRect.sizeDelta = new Vector2(600, Area.BoxRect.sizeDelta.y);
         Area.TextRect.GetComponent<Text>().text = text;
