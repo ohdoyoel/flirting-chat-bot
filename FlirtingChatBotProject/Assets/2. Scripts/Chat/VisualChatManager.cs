@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using System.IO;
 
 public class VisualChatManager : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class VisualChatManager : MonoBehaviour
     public Scrollbar scrollBar;
     SetArea LastArea;
 
-    public void VisualizeChat(bool isSend, string text, string user, Texture2D picture)
+
+    // flag: 0 - back, 1 - bot, 2 - user, 3 - user
+    public void VisualizeChat(int flag, string text, string user, Texture2D picture)
     {
         if (text.Trim() == "") return;
         bool isBottom = scrollBar.value <= 0.00001f;
@@ -19,7 +22,7 @@ public class VisualChatManager : MonoBehaviour
         // print(text);
 
         // 1. make chat area and put text
-        SetArea Area = Instantiate(isSend ? UserArea : BotArea).GetComponent<SetArea>();
+        SetArea Area = Instantiate((flag == 2 || flag == 3) ? UserArea : BotArea).GetComponent<SetArea>();
         Area.transform.SetParent(ContentRect.transform, false);
         Area.BoxRect.sizeDelta = new Vector2(600, Area.BoxRect.sizeDelta.y);
         Area.TextRect.GetComponent<Text>().text = text;
@@ -57,7 +60,7 @@ public class VisualChatManager : MonoBehaviour
         if (isSame) LastArea.TimeText.text = "";
 
         // 6. if bot is same, then delte profile img and name
-        if (!isSend)
+        if (flag == 1)
         {
             Area.UserImage.gameObject.SetActive(!isSame);
             Area.UserText.gameObject.SetActive(!isSame);
@@ -92,7 +95,7 @@ public class VisualChatManager : MonoBehaviour
         LastArea = Area;
 
         // 9. if receive in upper area, then do not go down
-        if (!isSend && !isBottom) return;
+        if ((flag == 1) && !isBottom) return;
         Invoke("ScrollDelay", 0.03f);
     }
 

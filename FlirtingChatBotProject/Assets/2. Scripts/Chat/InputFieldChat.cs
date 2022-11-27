@@ -33,7 +33,7 @@ public class InputFieldChat : MonoBehaviour
     {
         // 1. call chatbot api bot text from given inputField.text
 
-        visualChatManager.VisualizeChat(true, inputField.text, "유붕이", null); 
+        visualChatManager.VisualizeChat(2, inputField.text, "유붕이", null); 
         inputField.text = "";
 
         inputField.DeactivateInputField();

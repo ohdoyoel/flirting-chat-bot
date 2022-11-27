@@ -23,14 +23,14 @@ public class DebugChat : Editor
 
         if (GUILayout.Button("보내기", GUILayout.Width(60)) && text.Trim() != "")
         {
-            visualChatManager.VisualizeChat(true, text, "유붕이", null);
+            visualChatManager.VisualizeChat(2, text, "유붕이", null);
             text = "";
             GUI.FocusControl(null);
         }
 
         if (GUILayout.Button("받기", GUILayout.Width(60)) && text.Trim() != "")
         {
-            visualChatManager.VisualizeChat(false, text, "유순이", Resources.Load<Texture2D>("Assets/1. Resources/Images/profile_img.png"));
+            visualChatManager.VisualizeChat(1, text, "유순이", Resources.Load<Texture2D>("Assets/1. Resources/Images/profile_img.png"));
             text = "";
             GUI.FocusControl(null);
         }
