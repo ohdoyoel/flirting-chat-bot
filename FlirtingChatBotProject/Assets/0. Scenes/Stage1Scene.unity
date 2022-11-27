@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7536c1c07700c6e4abc5de96485e843c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage_path: /3. Stage/stage1.csv
+  stage_path: /3. Stage/stage2.csv
   visualChatManager: {fileID: 1597715394}
 --- !u!1 &1774235926
 GameObject:

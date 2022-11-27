@@ -57,7 +57,7 @@ public class StagePlayer : MonoBehaviour
             Debug.Log(flag_cont[i][0] + " " + flag_cont[i][1] + " " + flag_cont[i][2]);
             if (flag_cont[i][0] == "0")
             {
-                visualChatManager.VisualizeChat(0,flag_cont[i][1], "유붕이", null);
+                visualChatManager.VisualizeChat(0, flag_cont[i][1], "유붕이", null);
             }
             else if (flag_cont[i][0] == "1")
             {
